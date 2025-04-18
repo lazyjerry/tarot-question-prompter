@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>不神秘塔羅牌占卜</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="./main.css" />
+	</head>
+	<body class="min-h-screen flex flex-col items-center py-10 px-4">
+		<div class="text-center mb-8">
+			<h1
+				class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-4"
+			>
+				不神秘塔羅占卜
+			</h1>
+			<p class="text-lg text-gray-300 max-w-2xl mx-auto">
+				探索塔羅牌的奧秘，揭示內心的答案與未來的可能性。
+			</p>
+		</div>
+
+		<div class="w-full max-w-4xl mx-auto mb-10">
+			<div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 shadow-lg mb-4">
+				<!-- 新增：輸入問題欄位 -->
+				<div class="flex flex-col items-center gap-2 w-full">
+					<label for="questionInput" class="text-gray-300 text-lg font-medium">
+						你想詢問的問題是？
+					</label>
+					<input
+						type="text"
+						id="questionInput"
+						placeholder="例如：接下來三個月的戀愛運勢如何"
+						value="接下來三個月的戀愛運勢如何"
+						class="w-full max-w-md px-4 py-2 rounded-lg border border-gray-600 bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+					/>
+				</div>
+			</div>
+			<div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 shadow-lg">
+				<div
+					class="flex flex-wrap justify-center gap-6 mb-8"
+					id="card-container"
+				>
+					<!-- 卡片將在這裡動態生成 -->
+					<div class="text-center py-10">
+						<i class="fas fa-cards text-5xl text-purple-500 mb-4"></i>
+						<p class="text-gray-400">點擊下方按鈕開始抽牌</p>
+					</div>
+				</div>
+
+				<div class="flex flex-col items-center">
+					<button
+						id="draw-btn"
+						class="draw-btn bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex items-center gap-2 mb-4"
+					>
+						<i class="fas fa-hand-sparkles"></i>
+						抽取塔羅牌
+					</button>
+
+					<div class="flex gap-4">
+						<button
+							id="single-btn"
+							class="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-full text-sm transition"
+						>
+							單張牌
+						</button>
+						<button
+							id="three-btn"
+							class="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-full text-sm transition"
+						>
+							三張牌
+						</button>
+						<button
+							id="celtic-btn"
+							class="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-full text-sm transition"
+						>
+							凱爾特十字
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--  -->
+		<div
+			id="interpretation"
+			class="w-full max-w-3xl mx-auto bg-gray-800 bg-opacity-70 rounded-xl p-6 mb-10 hidden fade-in"
+		>
+			<h2
+				class="text-2xl font-bold text-purple-400 mb-4 flex items-center gap-2"
+			>
+				<i class="fas fa-book-open"></i>
+				牌義解釋
+			</h2>
+			<div id="interpretation-content" class="text-gray-300">
+				<!-- 解釋內容將在這裡動態生成 -->
+			</div>
+		</div>
+
+		<!-- 新增：AI 提示詞區塊 -->
+		<div
+			id="promptContainer"
+			class="w-full max-w-3xl mx-auto bg-gray-800 bg-opacity-70 rounded-xl p-6 mb-10"
+		>
+			<h2
+				class="text-2xl font-bold text-purple-400 mb-4 flex items-center gap-2"
+			>
+				<i class="fas fa-magic"></i>
+				提示詞給 AI 占卜
+			</h2>
+			<div class="flex flex-col gap-4">
+				<textarea
+					id="aiPrompt"
+					placeholder="輸入提示詞，例如：請解釋這張塔羅牌的意義..."
+					class="w-full h-32 px-4 py-2 rounded-lg border border-gray-600 bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
+				></textarea>
+				<button
+					id="copyPromptBtn"
+					class="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-2 px-4 rounded-full text-sm hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
+				>
+					<i class="fas fa-copy"></i> 複製提示詞
+				</button>
+			</div>
+
+			<script>
+				document
+					.getElementById("copyPromptBtn")
+					.addEventListener("click", () => {
+						const aiPrompt = document.getElementById("aiPrompt");
+						aiPrompt.select();
+						aiPrompt.setSelectionRange(0, 99999); // For mobile devices
+						navigator.clipboard
+							.writeText(aiPrompt.value)
+							.then(() => {
+								alert("提示詞已複製到剪貼簿！");
+							})
+							.catch((err) => {
+								console.error("複製失敗：", err);
+							});
+					});
+			</script>
+		</div>
+
+		<div class="text-gray-500 text-sm mt-auto text-center">
+			<p class="">
+				塔羅占卜反映的是當下能量與傾向，並非絕對命運預言。結果可能因你的選擇與行動而改變，請以開放的心態接納指引，理性看待解讀內容。若面臨重大抉擇或心理困擾，建議尋求專業意見與協助。
+			</p>
+		</div>
+
+		<script src="./main.js"></script>
+	</body>
+</html>
