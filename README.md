@@ -1,61 +1,50 @@
-# Tarot Insight AI 🎴🤖
+# tarot-question-prompter 🎴💬
 
-一個簡單的塔羅占卜網頁應用，讓使用者輸入問題、抽取三張牌，並自動產生提示詞給 ChatGPT 或其他 AI 模型進行占卜解析。
+這是一個輕量化塔羅牌占卜網頁應用，讓使用者輸入他們想詢問的問題，並在抽出三張牌之後，自動生成提示詞，協助 AI（如 ChatGPT）進行個人化占卜解析。
+
+本專案純使用 HTML、CSS、JavaScript 開發，無需後端即可執行，適合部署於任何靜態網頁平台。
+
+---
 
 ## 🔮 功能特色
 
-- 輸入你想詢問的問題（例如：「我該轉職嗎？」）
-- 抽出 3 張隨機塔羅牌，包含正位／逆位（會自動旋轉圖片）
-- 生成給 AI 的提示語，幫助 AI 占卜回答你的問題
+- **問題輸入**：使用者可自由輸入想詢問的內容
+- **三張塔羅牌抽取**：每張牌皆隨機正位／逆位顯示（圖片自動翻轉）
+- **AI Prompt 生成**：根據問題與抽牌結果，自動輸出占卜提示詞
+
+---
 
 ## 📁 專案結構
 
 www/
 ├── index.html # 主頁面
-├── main.css # 樣式檔案
-├── main.js # 抽牌與提示詞邏輯
-└── tarot/ # 所有塔羅牌圖像（共 78 張）
+├── style.css # 樣式檔案
+├── script.js # 邏輯與互動功能
+└── tarot/ # 塔羅牌圖像素材（共 78 張）
 
-## 🚀 使用方式
+---
 
-1. 下載或 clone 此專案：
+## 🛠 技術使用
 
-```bash
-git clone https://github.com/your-username/tarot-insight-ai.git
-cd tarot-insight-ai/www
+- HTML5 + CSS3 + 原生 JavaScript
+- 圖片翻轉使用 `transform: scaleY(-1)`
+- 提示詞邏輯運算與簡易文字格式化
 
-	2.	使用本地伺服器啟動（建議）：
+---
 
-npx serve .
-# 或使用 VSCode Live Server 擴充功能開啟 index.html
+## 📄 授權 License
 
-	3.	開啟瀏覽器，輸入問題並抽牌！
+本專案採用 [MIT License](https://opensource.org/licenses/MIT) 開源釋出，歡迎自由使用、修改與擴充。
 
-⸻
+---
 
-💡 AI 提示語格式
+## 📬 聯絡方式
 
-抽牌後會自動產生提示詞，例如：
+作者：[lazyjerry](https://github.com/lazyjerry)  
+如有合作或問題，歡迎透過 GitHub issue 或私訊聯絡。
 
-請根據以下三張塔羅牌提供占卜解讀，並以我提出的問題為核心做出分析：
+---
 
-- 問題：「我該轉職嗎？」
-- 第一張牌：魔術師（正位）
-- 第二張牌：隱士（逆位）
-- 第三張牌：死神（正位）
+## ⭐ Star Me!
 
-請從過去、現在、未來三個面向解釋，並包含情緒與建議。
-
-你可以複製這段文字貼給 ChatGPT 來獲得詳細解讀 ✨
-
-🛠 技術使用
-	•	HTML5 + CSS3 + 原生 JavaScript
-	•	圖片旋轉使用 transform: scaleY(-1)
-	•	自動產生占卜提示詞
-
-⸻
-
-📜 授權
-
-MIT License
-```
+如果你喜歡這個專案，歡迎幫我點個 Star 🌟 讓更多人看到！
