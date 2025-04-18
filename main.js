@@ -238,7 +238,7 @@ function drawCards() {
       break;
     case "three":
       cardsToDraw = 3;
-      spreadName = "三張牌占卜";
+      spreadName = "時間之流";
       break;
     case "celtic":
       cardsToDraw = 10;
