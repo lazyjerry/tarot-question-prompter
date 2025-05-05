@@ -25,8 +25,11 @@ Demo [請點我](https://tarot.goblinapp.com/)
 
 www/
 ├── index.html # 主頁面
+
 ├── style.css # 樣式檔案
+
 ├── script.js # 邏輯與互動功能
+
 └── tarot/ # 塔羅牌圖像素材（共 78 張）
 
 ---
