@@ -4,7 +4,7 @@
 
 本專案純使用 HTML、CSS、JavaScript 開發，無需後端即可執行，適合部署於任何靜態網頁平台。
 
-Demo [請點我](https://tarot.goblinapp.com/)
+Demo [請點我](https://tarot.jlab-app.cloud)
 
 ---
 
